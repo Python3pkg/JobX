@@ -11,9 +11,9 @@ handler_type: reducer
 required_capability: none
 """
 
-print("GET(reduce): %s" % (ctx.session_get('key2'),))
+print(("GET(reduce): %s" % (ctx.session_get('key2'),)))
 
-print("handler2 results: %s" % (results,))
+print(("handler2 results: %s" % (results,)))
 
 #EMAIL.info("Email notification.")
 
@@ -25,4 +25,4 @@ for k, value_list in results:
         except KeyError:
             tally[k] = value
 
-return tally.iteritems()
+return iter(tally.items())

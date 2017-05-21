@@ -1,4 +1,4 @@
-import redis
+from . import redis
 
 import mr.config.cache
 import mr.cache.cache

@@ -18,7 +18,7 @@ class _Notify(object):
         message = message % args
 
         message_with_extra = message
-        if sys.exc_type is not None:
+        if sys.exc_info()[0] is not None:
             # The HTTPHandler won't transfer the traceback.
             message_with_extra += '\n\n' + traceback.format_exc()
 

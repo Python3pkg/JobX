@@ -11,7 +11,7 @@ handler_type: reducer
 required_capability: none
 """
 
-print("handler2 results: %s" % (results,))
+print(("handler2 results: %s" % (results,)))
 
 tally = {}
 for k, value_list in results:
@@ -22,4 +22,4 @@ for k, value_list in results:
     except KeyError:
         tally[k] = sum_
 
-return tally.items()
+return list(tally.items())

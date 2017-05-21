@@ -1,7 +1,7 @@
 import logging
 import functools 
 import threading
-import Queue
+import queue
 
 import mr.config.queue
 import mr.job_engine
@@ -18,7 +18,7 @@ class MessageHandler(object):
         self.__sp = mr.job_engine.get_step_processor()
         self.__qmp = mr.queue.queue_message.get_queue_message_processor()
 
-        self.__dispatch_join_q = Queue.Queue()
+        self.__dispatch_join_q = queue.Queue()
         self.__dispatch_cleanup_thread_exit_ev = threading.Event()
 
         self.__schedule_dispatch_cleanup()
@@ -38,7 +38,7 @@ class MessageHandler(object):
                 dispatched_t = \
                     self.__dispatch_join_q.get(
                         timeout=mr.config.queue.DISPATCH_CLEANUP_INTERVAL_S)
-            except Queue.Empty:
+            except queue.Empty:
                 continue
 
             _logger.debug("Joining finished dispatch: [%s]", dispatched_t.name)

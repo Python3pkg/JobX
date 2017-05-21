@@ -22,7 +22,7 @@ print("SET(map) 1")
 ctx.session_set('key1', 'xyz')
 print("SET(map) 2")
 ctx.session_set('key2', 'uvw')
-print("GET(map): %s" % (ctx.session_get('key2'),))
+print(("GET(map): %s" % (ctx.session_get('key2'),)))
 
 yield MrConfigureToMap('step7_chunk_argument')
 

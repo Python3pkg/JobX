@@ -34,7 +34,7 @@ r = requests.post(
 
 r.raise_for_status()
 
-print("Request: [%s]" % (r.headers['x-mr-request-id'],))
+print(("Request: [%s]" % (r.headers['x-mr-request-id'],)))
 
 if is_blocking is True:
     raw = r.json()

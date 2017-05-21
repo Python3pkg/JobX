@@ -56,7 +56,7 @@ class PythonProcessor(mr.handlers.processors.processor.Processor):
         
         scope_final.update(scope)
         locals_ = {}
-        exec c in scope_final, locals_
+        exec(c, scope_final, locals_)
      
         f = locals_[id_]
 

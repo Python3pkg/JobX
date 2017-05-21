@@ -1,8 +1,8 @@
 # Get normal URL-parsing calls.
 
 try:
-    from urlparse import parse_qsl
-    from urllib import urlencode
+    from urllib.parse import parse_qsl
+    from urllib.parse import urlencode
 except ImportError:
     # Python 3
     from urllib.parse import parse_qsl, urlencode
@@ -11,7 +11,7 @@ except ImportError:
 
 try:
     # Python 2
-    basestring = basestring
+    str = str
 except NameError:
     # Python 3
-    basestring = str
+    str = str

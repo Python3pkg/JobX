@@ -1,7 +1,7 @@
 import logging
 import pprint
 import threading
-import Queue
+from . import Queue
 
 import mr.config
 import mr.config.request
@@ -181,11 +181,11 @@ class RequestCleanup(object):
 
         if mr.config.IS_DEBUG is True:
             _logger.debug("(%d) invocations to be pruned:\n%s", 
-                          len(invocations), pprint.pformat(invocations.keys()))
+                          len(invocations), pprint.pformat(list(invocations.keys())))
 
         # Delete the invocations.
 
-        for (invocation_id, invocation) in invocations.iteritems():
+        for (invocation_id, invocation) in invocations.items():
             self.__prune_invocation(invocation)
 
         # Now, delete the request.

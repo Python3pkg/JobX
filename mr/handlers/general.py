@@ -7,7 +7,7 @@ import time
 import threading
 import functools
 import traceback
-import cStringIO
+import io
 import subprocess
 
 import mr.config.log
@@ -277,8 +277,8 @@ class Handlers(object):
         handler_scope = {}
         handler_scope.update(scope)
 
-        stdout_ = cStringIO.StringIO()
-        stderr_ = cStringIO.StringIO()
+        stdout_ = io.StringIO()
+        stderr_ = io.StringIO()
 
         def custom_print(message):
             """Write the given text into the redirected pipes."""

@@ -41,7 +41,7 @@ def dump_encoded(encoded):
     print('')
     print("Message contents:")
     print('')
-    print('  %s' % (funneled_data,))
+    print(('  %s' % (funneled_data,)))
 
 class _FakeMessageHandler(mr.queue.message_handler.MessageHandler):
     pass
@@ -108,7 +108,7 @@ class _FakeQueueProducer(mr.queue.queue_producer.QueueProducer):
             with open(filepath, 'w') as f:
                 for chunk in self.__get_chunks(*args):
                     f.write(chunk)
-                    print("  " + chunk)
+                    print(("  " + chunk))
 
                 f.write('')
 
@@ -116,7 +116,7 @@ class _FakeQueueProducer(mr.queue.queue_producer.QueueProducer):
 
             print("Spooled-message unique name:")
             print('')
-            print('  %s' % (unique,))
+            print(('  %s' % (unique,)))
         else:
             for chunk in self.__get_chunks(*args):
                 print(chunk)
@@ -124,7 +124,7 @@ class _FakeQueueProducer(mr.queue.queue_producer.QueueProducer):
     def push_one_raw(self, topic, raw_message):
         _logger.debug("Pushing message to topic: [%s]", topic)
 
-        print("PUSH\n  TOPIC: [%s]\n  LEN: (%d)" % (topic, len(raw_message)))
+        print(("PUSH\n  TOPIC: [%s]\n  LEN: (%d)" % (topic, len(raw_message))))
         print('')
         dump_encoded(raw_message)
         print('')
@@ -136,11 +136,11 @@ class _FakeQueueProducer(mr.queue.queue_producer.QueueProducer):
         # generator.
         _logger.debug("Pushing MANY messages to topic: [%s]", topic)
 
-        print("PUSH\n  TOPIC: [%s]\n  COUNT: (%d)" % 
-              (topic, len(list(raw_message_list))))
+        print(("PUSH\n  TOPIC: [%s]\n  COUNT: (%d)" % 
+              (topic, len(list(raw_message_list)))))
 
         for (i, raw_message) in enumerate(raw_message_list):
-            print('%d:' % (i,))
+            print(('%d:' % (i,)))
             print('')
             self.__dump_chunks(topic, base64.b64encode(raw_message))
             print('')

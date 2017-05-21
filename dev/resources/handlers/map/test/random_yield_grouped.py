@@ -43,7 +43,7 @@ LOG.info("mapper(random_yield_grouped): Top.")
 
 _FILEPATH = _PATH + SEP + str(random.random())
 
-print("NEW FILE: [%s]" % (_FILEPATH,))
+print(("NEW FILE: [%s]" % (_FILEPATH,)))
 
 with FS.open(_FILEPATH, 'w') as f:
     f.write("Body!")

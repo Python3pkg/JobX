@@ -44,14 +44,14 @@ class CommonKv(object):
 
         if issubclass(identity.__class__, tuple) is True:
             for part in identity:
-                if issubclass(part.__class__, mr.compat.basestring) and \
+                if issubclass(part.__class__, mr.compat.str) and \
                    ('-' in part or '/' in part):
                     raise ValueError("Identity has reserved characters: [%s]" % 
                                      (identity,))
 
             key = '/' + '/'.join([str(part) for part in identity])
         else:
-            if issubclass(part.__class__, mr.compat.basestring) and \
+            if issubclass(part.__class__, mr.compat.str) and \
                ('-' in identity or '/' in identity):
                 raise ValueError("Identity has reserved characters: [%s]" % 
                                  (identity,))

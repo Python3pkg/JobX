@@ -165,8 +165,8 @@ class Model(mr.models.kv.common.CommonKv):
         cls = self.__class__
 
         truncated_data = {}
-        for k, v in self.get_data().iteritems():
-            if issubclass(v.__class__, mr.compat.basestring) is True and \
+        for k, v in self.get_data().items():
+            if issubclass(v.__class__, mr.compat.str) is True and \
                len(v) > mr.config.kv.REPR_DATA_TRUNCATE_WIDTH:
                 v = v[:mr.config.kv.REPR_DATA_TRUNCATE_WIDTH] + '...'
 
@@ -180,7 +180,7 @@ class Model(mr.models.kv.common.CommonKv):
 
         data = dict([(k, v) 
                      for k, v 
-                     in self.get_data().iteritems() 
+                     in self.get_data().items() 
                      if k != cls.key_field and \
                         k not in ignore_keys])
 

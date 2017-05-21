@@ -539,9 +539,9 @@ class _StepProcessor(object):
             if issubclass(e.__class__, mr.handlers.general.HandlerException):
 # TODO(dustin): Finish debugging this.
                 print("MAP ERROR STDOUT >>>>>>>>>>>>>")
-                print(e.stdout)
+                print((e.stdout))
                 print("MAP ERROR STDERR >>>>>>>>>>>>>")
-                print(e.stderr)
+                print((e.stderr))
                 print("MAP ERROR <<<<<<<<<<<<<<<<<<<<")
 
             invocation.error = traceback.format_exc()
@@ -654,9 +654,9 @@ class _StepProcessor(object):
             if issubclass(e.__class__, mr.handlers.general.HandlerException):
 # TODO(dustin): Finish debugging this.
                 print("REDUCE ERROR STDOUT >>>>>>>>>>>>>")
-                print(e.stdout)
+                print((e.stdout))
                 print("REDUCE ERROR STDERR >>>>>>>>>>>>>")
-                print(e.stderr)
+                print((e.stderr))
                 print("REDUCE ERROR <<<<<<<<<<<<<<<<<<<<")
 
             # Formally mark the request as failed but finished. In the event 
@@ -762,8 +762,8 @@ class _StepProcessor(object):
             print('')
             for (i, data) in enumerate(results_gen):
                 (k, v) = data['p']
-                print("Result (%d)\nKey: %s\n Value: %s" % 
-                      (i, k, v))
+                print(("Result (%d)\nKey: %s\n Value: %s" % 
+                      (i, k, v)))
 
             print('')
 
@@ -782,7 +782,7 @@ class _StepProcessor(object):
                 grouped_results[k] = [v]
 
         # We're not in Python3, so we have to use <dict>.iteritems().
-        grouped_results_gen = grouped_results.iteritems()
+        grouped_results_gen = iter(grouped_results.items())
 
         handler_arguments = {
             'results': grouped_results_gen,
@@ -848,8 +848,8 @@ class _StepProcessor(object):
             
             print('')
             for (i, data) in enumerate(results_gen):
-                print("Result (%d)\nKey: %s\n Value List: %s" % 
-                      (i, data['k'], data['vl']))
+                print(("Result (%d)\nKey: %s\n Value List: %s" % 
+                      (i, data['k'], data['vl'])))
 
             print('')
 

@@ -1,5 +1,5 @@
 import logging
-import Queue
+from . import Queue
 import subprocess
 
 import graphviz

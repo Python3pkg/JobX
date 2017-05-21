@@ -43,5 +43,5 @@ if is_blocking is True:
     # result with forcibly-stringified keys.
     pprint.pprint(result)
 else:
-    print("Response:\n\n%s" % (raw,))
+    print(("Response:\n\n%s" % (raw,)))
 

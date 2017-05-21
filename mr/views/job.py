@@ -26,7 +26,7 @@ def _get_arguments_from_request():
     assert issubclass(request_data['arguments'].__class__, dict) is True
 
     try:
-        return request_data['arguments'].iteritems()
+        return iter(request_data['arguments'].items())
     except KeyError:
         raise ValueError("No arguments given (2)")
 
